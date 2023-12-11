@@ -7,9 +7,9 @@ func main() {
 
 	// NUMBER 1
 	fmt.Println("NUMBER 1")
-	type person = map[string]string
+	type Person map[string]string
 
-	var people = []map[string]string{
+	var people = []Person{
 		{
 			"name": "Hank",
 			"Age":  "50",
