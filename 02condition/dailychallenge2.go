@@ -1,4 +1,5 @@
 package main
+
 import "fmt"
 
 func main() {
@@ -11,17 +12,19 @@ func main() {
 	var people = []map[string]string{
 		{
 			"name": "Hank",
-			"Age": "50",
-			"Job": "Polisi",
+			"Age":  "50",
+			"Job":  "Polisi",
 		},
 		{
 			"name": "Heisenberg",
-		"Age": "52",
-		"Job": "Ilmuwan",
-	},
-		{"name": "Skyler",
-		"Age": "48",
-		"Job": "Akuntan",},
+			"Age":  "52",
+			"Job":  "Ilmuwan",
+		},
+		{
+			"name": "Skyler",
+			"Age":  "48",
+			"Job":  "Akuntan",
+		},
 	}
 
 	for _, v := range people {
@@ -35,7 +38,7 @@ func main() {
 		fmt.Println("*")
 		rows1--
 	}
-	
+
 	// NUMBER 3
 	fmt.Println("NUMBER 3")
 	var rows3 int = 5
