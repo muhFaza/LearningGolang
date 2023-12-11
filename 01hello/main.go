@@ -1,7 +1,6 @@
 package main
 import (
 	"fmt"
-	"another/printme"
 )
 func main() {
 	// var name string = "faza"
