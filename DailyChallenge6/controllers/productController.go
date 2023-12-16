@@ -29,7 +29,7 @@ func CreateProducts(w http.ResponseWriter, r *http.Request) {
 	var reqBody models.Product
 	err := json.NewDecoder(r.Body).Decode(&reqBody)
 	if err != nil {
-		fmt.Printf("%+v", err)
+		fmt.Println(err)
 		http.Error(w, "Invalid request body", 400)
 	} else {
 		reqBody.ID = int64(len(productsData) + 1)
