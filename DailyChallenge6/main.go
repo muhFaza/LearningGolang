@@ -1,19 +1,19 @@
 package main
 
 import (
-	"fmt"
-	"net/http"
-	"DailyChallenge6/routes"
-
+	"DailyChallenge6/controllers"
+  "github.com/gin-gonic/gin"
 )
 
 func main() {
-	router := routes.InitializeRoutes()
-	fmt.Println("Server is running on port 8080")
+	r := gin.Default()
 
-	// start the server
-	err := http.ListenAndServe(":8080", router)
-	if err != nil {
-		fmt.Println(err)
-	}
+	r.GET("/warehouses", controllers.GetWarehouses)
+	r.POST("/warehouses", controllers.CreateWarehouse)
+
+
+	r.GET("/products", controllers.GetProducts)
+	r.POST("/products", controllers.CreateProducts)
+
+	r.Run()
 }

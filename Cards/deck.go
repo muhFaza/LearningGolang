@@ -38,3 +38,7 @@ func (d deck) print() {
 		fmt.Println(v)
 	}
 }
+
+func (d deck) shuffle () {
+	
+}
