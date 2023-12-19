@@ -47,3 +47,17 @@ func GetWarehouseById(c *gin.Context) {
 	notFoundStr := fmt.Sprintf("Warehouse with ID %v not found", ID)
 	c.JSON(http.StatusNotFound, gin.H{"message": notFoundStr})
 }
+
+func DeleteWarehouseById(c *gin.Context) {
+	ID := c.Param("id")
+	for index, warehouse := range warehouses {
+		if fmt.Sprintf("%v", warehouse.ID) == ID {
+			warehouses = append(warehouses[:index], warehouses[index+1:]...)
+			c.JSON(http.StatusOK, gin.H{"message": "Warehouse deleted successfully", "deleted": warehouse})
+			return
+		}
+	}
+
+	notFoundStr := fmt.Sprintf("Warehouse with ID %v not found", ID)
+	c.JSON(http.StatusNotFound, gin.H{"message": notFoundStr, "deleted": nil})
+}

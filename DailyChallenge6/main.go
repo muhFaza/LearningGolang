@@ -11,6 +11,7 @@ func main() {
 	r.GET("/warehouses", controllers.GetWarehouses)
 	r.GET(("warehouses/:id"), controllers.GetWarehouseById)
 	r.POST("/warehouses", controllers.CreateWarehouse)
+	r.DELETE("/warehouses/:id", controllers.DeleteWarehouseById)
 
 
 	r.GET("/products", controllers.GetProducts)

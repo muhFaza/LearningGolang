@@ -46,3 +46,17 @@ func GetProductById (c *gin.Context) {
 	notFoundStr := fmt.Sprintf("No product with ID %v found", ID)
 	c.JSON(http.StatusNotFound, gin.H{"message": notFoundStr})
 }
+
+func DeleteProductById(c *gin.Context){
+	ID := c.Param("id")
+	for index, product := range productsData {
+		if fmt.Sprintf("%v", product.ID) == ID {
+			productsData = append(productsData[:index], productsData[index+1:]...)
+			c.JSON(http.StatusOK, gin.H{"message": "Product deleted successfully", "deleted": product})
+			return
+		}
+	}
+	
+	notFoundStr := fmt.Sprintf("No product with ID %v found", ID)
+	c.JSON(http.StatusNotFound, gin.H{"message": notFoundStr, "deleted": nil})
+}
